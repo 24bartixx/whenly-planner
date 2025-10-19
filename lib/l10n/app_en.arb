@@ -1,0 +1,6 @@
+{
+  "choose_day": "Choose day",
+  "@choose_day": {
+    "description": "Short title shown at the top of the day-picker"
+  }
+}
