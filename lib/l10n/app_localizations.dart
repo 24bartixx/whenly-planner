@@ -98,7 +98,13 @@ abstract class AppLocalizations {
   ///
   /// In en, this message translates to:
   /// **'Choose day'**
-  String get choose_day;
+  String get home_choose_day;
+
+  /// Title for the day's tasks
+  ///
+  /// In en, this message translates to:
+  /// **'Tasks for the day'**
+  String get home_tasks_for_day;
 }
 
 class _AppLocalizationsDelegate

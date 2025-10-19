@@ -1,6 +1,10 @@
 {
-  "choose_day": "Choose day",
-  "@choose_day": {
+  "home_choose_day": "Choose day",
+  "@home_choose_day": {
     "description": "Short title shown at the top of the day-picker"
+  },
+  "home_tasks_for_day": "Tasks for the day",
+  "@home_tasks_for_day": {
+    "description": "Title for the day's tasks"
   }
 }

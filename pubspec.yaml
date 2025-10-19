@@ -33,13 +33,19 @@ dependencies:
 
   cupertino_icons: ^1.0.8
 
-  # translations
+  # Translations
   flutter_localizations:
     sdk: flutter
   intl: ^0.20.2
 
+  # Theme
+  theme_tailor: ^3.1.1
+
   # Navigation
   go_router: ^16.2.4
+
+  # Calendar
+  table_calendar: ^3.2.0
 
 dev_dependencies:
   flutter_test:

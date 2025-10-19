@@ -9,5 +9,8 @@ class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
-  String get choose_day => 'Choose day';
+  String get home_choose_day => 'Choose day';
+
+  @override
+  String get home_tasks_for_day => 'Tasks for the day';
 }
