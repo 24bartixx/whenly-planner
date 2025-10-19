@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:whenly_planner/theme/custom_colors.dart';
 
 abstract class CustomAbstractTextStyle extends TextStyle {
   const CustomAbstractTextStyle({super.fontSize, super.fontWeight, super.color})
@@ -7,7 +8,7 @@ abstract class CustomAbstractTextStyle extends TextStyle {
 
 class DarkTextStyle extends CustomAbstractTextStyle {
   const DarkTextStyle({super.fontSize, super.fontWeight})
-    : super(color: Colors.black);
+    : super(color: CustomColors.darkSand);
 }
 
 class NormalDarkTextStyle extends DarkTextStyle {
@@ -27,7 +28,7 @@ class BoldDarkTextStyle extends DarkTextStyle {
 
 class LightTextStyle extends CustomAbstractTextStyle {
   const LightTextStyle({super.fontSize, super.fontWeight})
-    : super(color: Colors.white);
+    : super(color: CustomColors.lightMist);
 }
 
 class NormalLightTextStyle extends LightTextStyle {

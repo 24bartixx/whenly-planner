@@ -33,6 +33,8 @@ class HomeView extends StatelessWidget {
               ),
               centerTitle: false,
               floating: true,
+              snap: true,
+              pinned: false,
             ),
             SliverChooseDay(),
             SliverToBoxAdapter(

@@ -11,16 +11,23 @@ part of 'app_theme.dart';
 
 mixin _$AppThemeTailorMixin on ThemeExtension<AppTheme> {
   AppTextTheme get textTheme;
+  AppColorTheme get colorTheme;
 
   @override
-  AppTheme copyWith({AppTextTheme? textTheme}) {
-    return AppTheme(textTheme: textTheme ?? this.textTheme);
+  AppTheme copyWith({AppTextTheme? textTheme, AppColorTheme? colorTheme}) {
+    return AppTheme(
+      textTheme: textTheme ?? this.textTheme,
+      colorTheme: colorTheme ?? this.colorTheme,
+    );
   }
 
   @override
   AppTheme lerp(covariant ThemeExtension<AppTheme>? other, double t) {
     if (other is! AppTheme) return this as AppTheme;
-    return AppTheme(textTheme: textTheme.lerp(other.textTheme, t));
+    return AppTheme(
+      textTheme: textTheme.lerp(other.textTheme, t),
+      colorTheme: colorTheme.lerp(other.colorTheme, t),
+    );
   }
 
   @override
@@ -28,7 +35,11 @@ mixin _$AppThemeTailorMixin on ThemeExtension<AppTheme> {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is AppTheme &&
-            const DeepCollectionEquality().equals(textTheme, other.textTheme));
+            const DeepCollectionEquality().equals(textTheme, other.textTheme) &&
+            const DeepCollectionEquality().equals(
+              colorTheme,
+              other.colorTheme,
+            ));
   }
 
   @override
@@ -36,6 +47,7 @@ mixin _$AppThemeTailorMixin on ThemeExtension<AppTheme> {
     return Object.hash(
       runtimeType.hashCode,
       const DeepCollectionEquality().hash(textTheme),
+      const DeepCollectionEquality().hash(colorTheme),
     );
   }
 }
@@ -43,4 +55,5 @@ mixin _$AppThemeTailorMixin on ThemeExtension<AppTheme> {
 extension AppThemeBuildContextProps on BuildContext {
   AppTheme get appTheme => Theme.of(this).extension<AppTheme>()!;
   AppTextTheme get textTheme => appTheme.textTheme;
+  AppColorTheme get colorTheme => appTheme.colorTheme;
 }
