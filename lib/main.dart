@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:whenly_planner/features/navigation/router.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:whenly_planner/l10n/app_localizations.dart';
+import 'package:whenly_planner/theme/app_theme.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,6 +21,7 @@ class MyApp extends StatelessWidget {
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
+      theme: ThemeData(extensions: const [AppTheme()]),
       supportedLocales: [Locale("en")],
     );
   }

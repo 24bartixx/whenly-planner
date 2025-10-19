@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:whenly_planner/config/ui_config.dart';
 import 'package:whenly_planner/features/home/widgets/sliver_choose_day.dart';
 import 'package:whenly_planner/features/home/widgets/task_tile.dart';
+import 'package:whenly_planner/theme/app_theme.dart';
 import 'package:whenly_planner/utils/context_extensions.dart';
 
 class HomeView extends StatelessWidget {
@@ -26,12 +27,20 @@ class HomeView extends StatelessWidget {
         child: CustomScrollView(
           slivers: [
             SliverAppBar(
-              title: Text(context.l10n.home_choose_day),
+              title: Text(
+                context.l10n.home_choose_day,
+                style: context.textTheme.displaySmallDark,
+              ),
               centerTitle: false,
               floating: true,
             ),
             SliverChooseDay(),
-            SliverToBoxAdapter(child: Text(context.l10n.home_tasks_for_day)),
+            SliverToBoxAdapter(
+              child: Text(
+                context.l10n.home_tasks_for_day,
+                style: context.textTheme.headlineMediumDark,
+              ),
+            ),
             SliverList.builder(
               itemBuilder: (BuildContext context, int index) {
                 return TaskTile();
