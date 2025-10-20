@@ -10,26 +10,29 @@ part of 'app_color_theme.dart';
 // **************************************************************************
 
 mixin _$AppColorThemeTailorMixin on ThemeExtension<AppColorTheme> {
-  Color get blueLagoon;
-  Color get blueLagoonLight;
-  Color get blueLagoonDark;
+  Color get violet;
+  Color get violetLight;
+  Color get violetDark;
   Color get darkSand;
   Color get lightMist;
+  Color get lightGrey;
 
   @override
   AppColorTheme copyWith({
-    Color? blueLagoon,
-    Color? blueLagoonLight,
-    Color? blueLagoonDark,
+    Color? violet,
+    Color? violetLight,
+    Color? violetDark,
     Color? darkSand,
     Color? lightMist,
+    Color? lightGrey,
   }) {
     return AppColorTheme(
-      blueLagoon: blueLagoon ?? this.blueLagoon,
-      blueLagoonLight: blueLagoonLight ?? this.blueLagoonLight,
-      blueLagoonDark: blueLagoonDark ?? this.blueLagoonDark,
+      violet: violet ?? this.violet,
+      violetLight: violetLight ?? this.violetLight,
+      violetDark: violetDark ?? this.violetDark,
       darkSand: darkSand ?? this.darkSand,
       lightMist: lightMist ?? this.lightMist,
+      lightGrey: lightGrey ?? this.lightGrey,
     );
   }
 
@@ -37,11 +40,12 @@ mixin _$AppColorThemeTailorMixin on ThemeExtension<AppColorTheme> {
   AppColorTheme lerp(covariant ThemeExtension<AppColorTheme>? other, double t) {
     if (other is! AppColorTheme) return this as AppColorTheme;
     return AppColorTheme(
-      blueLagoon: Color.lerp(blueLagoon, other.blueLagoon, t)!,
-      blueLagoonLight: Color.lerp(blueLagoonLight, other.blueLagoonLight, t)!,
-      blueLagoonDark: Color.lerp(blueLagoonDark, other.blueLagoonDark, t)!,
+      violet: Color.lerp(violet, other.violet, t)!,
+      violetLight: Color.lerp(violetLight, other.violetLight, t)!,
+      violetDark: Color.lerp(violetDark, other.violetDark, t)!,
       darkSand: Color.lerp(darkSand, other.darkSand, t)!,
       lightMist: Color.lerp(lightMist, other.lightMist, t)!,
+      lightGrey: Color.lerp(lightGrey, other.lightGrey, t)!,
     );
   }
 
@@ -50,40 +54,40 @@ mixin _$AppColorThemeTailorMixin on ThemeExtension<AppColorTheme> {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is AppColorTheme &&
+            const DeepCollectionEquality().equals(violet, other.violet) &&
             const DeepCollectionEquality().equals(
-              blueLagoon,
-              other.blueLagoon,
+              violetLight,
+              other.violetLight,
             ) &&
             const DeepCollectionEquality().equals(
-              blueLagoonLight,
-              other.blueLagoonLight,
-            ) &&
-            const DeepCollectionEquality().equals(
-              blueLagoonDark,
-              other.blueLagoonDark,
+              violetDark,
+              other.violetDark,
             ) &&
             const DeepCollectionEquality().equals(darkSand, other.darkSand) &&
-            const DeepCollectionEquality().equals(lightMist, other.lightMist));
+            const DeepCollectionEquality().equals(lightMist, other.lightMist) &&
+            const DeepCollectionEquality().equals(lightGrey, other.lightGrey));
   }
 
   @override
   int get hashCode {
     return Object.hash(
       runtimeType.hashCode,
-      const DeepCollectionEquality().hash(blueLagoon),
-      const DeepCollectionEquality().hash(blueLagoonLight),
-      const DeepCollectionEquality().hash(blueLagoonDark),
+      const DeepCollectionEquality().hash(violet),
+      const DeepCollectionEquality().hash(violetLight),
+      const DeepCollectionEquality().hash(violetDark),
       const DeepCollectionEquality().hash(darkSand),
       const DeepCollectionEquality().hash(lightMist),
+      const DeepCollectionEquality().hash(lightGrey),
     );
   }
 }
 
 extension AppColorThemeBuildContextProps on BuildContext {
   AppColorTheme get appColorTheme => Theme.of(this).extension<AppColorTheme>()!;
-  Color get blueLagoon => appColorTheme.blueLagoon;
-  Color get blueLagoonLight => appColorTheme.blueLagoonLight;
-  Color get blueLagoonDark => appColorTheme.blueLagoonDark;
+  Color get violet => appColorTheme.violet;
+  Color get violetLight => appColorTheme.violetLight;
+  Color get violetDark => appColorTheme.violetDark;
   Color get darkSand => appColorTheme.darkSand;
   Color get lightMist => appColorTheme.lightMist;
+  Color get lightGrey => appColorTheme.lightGrey;
 }

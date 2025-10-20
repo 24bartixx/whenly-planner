@@ -8,21 +8,24 @@ part "app_color_theme.tailor.dart";
 class AppColorTheme extends ThemeExtension<AppColorTheme>
     with _$AppColorThemeTailorMixin {
   const AppColorTheme({
-    this.blueLagoon = CustomColors.blueLagoon,
-    this.blueLagoonLight = CustomColors.blueLagoonLight,
-    this.blueLagoonDark = CustomColors.blueLagoonDarker,
+    this.violet = CustomColors.violet,
+    this.violetLight = CustomColors.violetLight,
+    this.violetDark = CustomColors.violetDark,
     this.darkSand = CustomColors.darkSand,
     this.lightMist = CustomColors.lightMist,
+    this.lightGrey = CustomColors.lightGrey,
   });
 
   @override
-  final Color blueLagoon;
+  final Color violet;
   @override
-  final Color blueLagoonLight;
+  final Color violetLight;
   @override
-  final Color blueLagoonDark;
+  final Color violetDark;
   @override
   final Color darkSand;
   @override
   final Color lightMist;
+  @override
+  final Color lightGrey;
 }
