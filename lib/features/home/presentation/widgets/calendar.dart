@@ -47,6 +47,7 @@ class Calendar extends StatelessWidget {
           color: CustomColors.coralBloom,
           shape: BoxShape.circle,
         ),
+        todayTextStyle: context.textTheme.titleSmallLight,
       ),
     );
   }

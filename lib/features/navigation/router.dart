@@ -1,5 +1,5 @@
 import 'package:go_router/go_router.dart';
-import 'package:whenly_planner/features/home/home_page.dart';
+import 'package:whenly_planner/features/home/presentation/home_page.dart';
 import 'package:whenly_planner/features/navigation/widgets/bottom_nav_scaffold.dart';
 import 'package:whenly_planner/features/todo/todo_page.dart';
 

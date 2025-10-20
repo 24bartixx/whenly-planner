@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:whenly_planner/features/home/home_view.dart';
+import 'package:whenly_planner/features/home/presentation/home_view.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});

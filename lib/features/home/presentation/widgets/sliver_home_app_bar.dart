@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:whenly_planner/config/ui_config.dart';
-import 'package:whenly_planner/features/home/widgets/calendar.dart';
+import 'package:whenly_planner/features/home/presentation/widgets/calendar.dart';
 import 'package:whenly_planner/theme/app_theme.dart';
 import 'package:whenly_planner/utils/context_extensions.dart';
 
