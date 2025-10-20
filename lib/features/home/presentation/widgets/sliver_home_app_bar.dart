@@ -24,8 +24,8 @@ class SliverHomeAppBar extends StatelessWidget {
 
       // scroll logic
       pinned: true,
-      snap: true,
-      floating: true,
+      snap: false,
+      floating: false,
 
       // elevation
       forceElevated: true,

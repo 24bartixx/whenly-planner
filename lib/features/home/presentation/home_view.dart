@@ -20,7 +20,7 @@ class HomeView extends StatelessWidget {
           SliverHomeAppBar(),
           SliverPadding(
             padding: EdgeInsets.only(
-              top: AppPaddings.large,
+              top: AppPaddings.huge,
               bottom: AppPaddings.large,
               left: AppPaddings.large,
               right: AppPaddings.large,

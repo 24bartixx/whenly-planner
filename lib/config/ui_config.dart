@@ -4,6 +4,7 @@ abstract class AppPaddings {
   static const double medium = 12.0;
   static const double big = 16.0;
   static const double large = 24.0;
+  static const double huge = 32.0;
 }
 
 abstract class AppRadiuses {
