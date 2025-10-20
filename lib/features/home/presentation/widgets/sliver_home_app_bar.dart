@@ -7,25 +7,20 @@ import 'package:whenly_planner/utils/context_extensions.dart';
 class SliverHomeAppBar extends StatelessWidget {
   const SliverHomeAppBar({super.key});
 
-  final double calendarHeight = 364;
+  final double requiredHeight = 350;
 
   @override
   Widget build(BuildContext context) {
     final topHeight = MediaQuery.of(context).padding.top;
 
     return SliverAppBar(
-      expandedHeight: (calendarHeight + topHeight + kToolbarHeight),
+      expandedHeight: (requiredHeight + topHeight + kToolbarHeight),
       backgroundColor: context.colorTheme.violetDark,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(
           bottom: Radius.circular(AppRadiuses.large),
         ),
       ),
-
-      // scroll logic
-      pinned: true,
-      snap: false,
-      floating: false,
 
       // elevation
       forceElevated: true,
@@ -34,27 +29,29 @@ class SliverHomeAppBar extends StatelessWidget {
       shadowColor: context.colorTheme.darkSand,
       surfaceTintColor: Colors.transparent,
 
-      // widgets
-      title: Padding(
-        padding: const EdgeInsets.only(bottom: AppPaddings.medium),
-        child: Text(
-          context.l10n.home_choose_day,
-          style: context.textTheme.displaySmallLight,
-        ),
-      ),
-
+      // widget
       flexibleSpace: ClipRRect(
         borderRadius: const BorderRadius.vertical(
           bottom: Radius.circular(AppRadiuses.huge),
         ),
         child: FlexibleSpaceBar(
-          background: Padding(
-            padding: const EdgeInsets.only(
-              top: 120,
-              left: AppPaddings.large,
-              right: AppPaddings.large,
+          background: SafeArea(
+            child: Padding(
+              padding: const EdgeInsets.only(
+                top: 12,
+                left: AppPaddings.large,
+                right: AppPaddings.large,
+              ),
+              child: Column(
+                children: [
+                  Text(
+                    context.l10n.home_choose_day,
+                    style: context.textTheme.displaySmallLight,
+                  ),
+                  Calendar(),
+                ],
+              ),
             ),
-            child: Calendar(),
           ),
         ),
       ),

@@ -6,7 +6,6 @@ class TaskTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    debugPrint("Building TaskTile");
     return Card(
       color: Colors.white,
       elevation: 4,
@@ -16,7 +15,12 @@ class TaskTile extends StatelessWidget {
       child: ListTile(
         title: Row(
           children: [
-            Checkbox(value: false, onChanged: (_) {}),
+            Checkbox(
+              value: false,
+              onChanged: (_) {
+                debugPrint("changed");
+              },
+            ),
             Text("Title"),
             Spacer(),
             Text("Priority"),

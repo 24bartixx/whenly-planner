@@ -25,7 +25,7 @@ class SliverTasksSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverPadding(
-      padding: const EdgeInsets.symmetric(horizontal: AppPaddings.large),
+      padding: const EdgeInsets.all(AppPaddings.large),
       sliver: SliverList.builder(
         itemBuilder: (BuildContext context, int index) {
           return Padding(
