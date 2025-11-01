@@ -16,4 +16,13 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get search_task => 'Search task';
+
+  @override
+  String get priority_low => 'Low';
+
+  @override
+  String get priority_medium => 'Medium';
+
+  @override
+  String get priority_high => 'High';
 }

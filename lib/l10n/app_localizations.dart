@@ -111,6 +111,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Search task'**
   String get search_task;
+
+  /// Label for low priority task
+  ///
+  /// In en, this message translates to:
+  /// **'Low'**
+  String get priority_low;
+
+  /// Label for medium priority task
+  ///
+  /// In en, this message translates to:
+  /// **'Medium'**
+  String get priority_medium;
+
+  /// Label for high priority task
+  ///
+  /// In en, this message translates to:
+  /// **'High'**
+  String get priority_high;
 }
 
 class _AppLocalizationsDelegate

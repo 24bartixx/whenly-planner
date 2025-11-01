@@ -10,5 +10,17 @@
   "search_task": "Search task",
   "@search_task": {
     "description": "Search box placeholder for tasks"
+  },
+  "priority_low": "Low",
+  "@priority_low": {
+    "description": "Label for low priority task"
+  },
+  "priority_medium": "Medium",
+  "@priority_medium": {
+    "description": "Label for medium priority task"
+  },
+  "priority_high": "High",
+  "@priority_high": {
+    "description": "Label for high priority task"
   }
 }

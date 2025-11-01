@@ -2,8 +2,8 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:whenly_planner/config/ui_config.dart';
-import 'package:whenly_planner/features/todo/presentation/widgets/sliver_home_app_bar.dart';
-import 'package:whenly_planner/features/todo/presentation/widgets/sliver_tasks_section.dart';
+import 'package:whenly_planner/features/todo/presentation/view/sliver_home_app_bar.dart';
+import 'package:whenly_planner/features/todo/presentation/view/sliver_tasks_section.dart';
 import 'package:whenly_planner/theme/app_theme.dart';
 import 'package:whenly_planner/utils/context_extensions.dart';
 
