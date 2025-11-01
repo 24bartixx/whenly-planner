@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:whenly_planner/config/ui_config.dart';
 import 'package:whenly_planner/theme/app_theme.dart';
-import 'package:whenly_planner/theme/custom_colors.dart';
 
 class Calendar extends StatelessWidget {
   const Calendar({super.key});
@@ -19,12 +18,12 @@ class Calendar extends StatelessWidget {
         titleTextStyle: context.textTheme.headlineMediumLight,
         leftChevronIcon: Icon(
           Icons.chevron_left,
-          color: context.colorTheme.lightMist,
+          color: context.colorTheme.onPrimary,
           size: 22,
         ),
         rightChevronIcon: Icon(
           Icons.chevron_right,
-          color: context.colorTheme.lightMist,
+          color: context.colorTheme.onPrimary,
           size: 22,
         ),
       ),
@@ -39,12 +38,12 @@ class Calendar extends StatelessWidget {
         outsideTextStyle: context.textTheme.titleSmallLight.copyWith(
           fontWeight: FontWeight.normal,
         ),
-        selectedDecoration: BoxDecoration(
-          color: context.colorTheme.violetLight,
-          shape: BoxShape.circle,
-        ),
+        // selectedDecoration: BoxDecoration(
+        //   color: context.colorTheme.violetLight,
+        //   shape: BoxShape.circle,
+        // ),
         todayDecoration: BoxDecoration(
-          color: CustomColors.coralBloom,
+          color: context.colorTheme.secondaryContainer,
           shape: BoxShape.circle,
         ),
         todayTextStyle: context.textTheme.titleSmallLight,

@@ -6,5 +6,9 @@
   "home_tasks_for_day": "Tasks for the day",
   "@home_tasks_for_day": {
     "description": "Title for the day's tasks"
+  },
+  "search_task": "Search task",
+  "@search_task": {
+    "description": "Search box placeholder for tasks"
   }
 }

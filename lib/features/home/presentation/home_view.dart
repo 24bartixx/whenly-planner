@@ -5,7 +5,6 @@ import 'package:whenly_planner/config/ui_config.dart';
 import 'package:whenly_planner/features/home/presentation/widgets/sliver_home_app_bar.dart';
 import 'package:whenly_planner/features/home/presentation/widgets/sliver_tasks_section.dart';
 import 'package:whenly_planner/theme/app_theme.dart';
-import 'package:whenly_planner/theme/custom_colors.dart';
 import 'package:whenly_planner/utils/context_extensions.dart';
 
 class HomeView extends StatelessWidget {
@@ -16,7 +15,7 @@ class HomeView extends StatelessWidget {
     final FocusNode focusNode = FocusNode();
 
     return Scaffold(
-      backgroundColor: CustomColors.lightBg,
+      backgroundColor: context.colorTheme.surface,
       body: CustomScrollView(
         slivers: [
           SliverHomeAppBar(),
@@ -32,13 +31,13 @@ class HomeView extends StatelessWidget {
                     children: [
                       Text(
                         context.l10n.home_tasks_for_day,
-                        style: context.textTheme.headlineLargeDark,
+                        style: context.textTheme.headlineMediumDark,
                       ),
                       Row(
-                        spacing: 10,
+                        spacing: 12,
                         children: [
-                          Icon(Icons.add, size: 30),
-                          Icon(Icons.format_list_numbered, size: 30),
+                          Icon(Icons.add, size: 26),
+                          Icon(Icons.format_list_numbered, size: 26),
                         ],
                       ),
                     ],
@@ -46,12 +45,12 @@ class HomeView extends StatelessWidget {
                   const SizedBox(height: 12),
                   TextField(
                     decoration: InputDecoration(
-                      hintText: "Search task",
+                      hintText: context.l10n.search_task,
                       filled: true,
-                      fillColor: Colors.white,
+                      fillColor: context.colorTheme.surfaceContainerLowest,
                       prefixIcon: Icon(
                         Icons.search,
-                        color: context.colorTheme.darkSand,
+                        color: context.colorTheme.onSurface,
                       ),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(AppRadiuses.large),

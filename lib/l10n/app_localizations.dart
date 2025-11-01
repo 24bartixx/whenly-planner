@@ -105,6 +105,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Tasks for the day'**
   String get home_tasks_for_day;
+
+  /// Search box placeholder for tasks
+  ///
+  /// In en, this message translates to:
+  /// **'Search task'**
+  String get search_task;
 }
 
 class _AppLocalizationsDelegate

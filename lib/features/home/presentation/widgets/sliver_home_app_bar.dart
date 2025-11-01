@@ -15,7 +15,7 @@ class SliverHomeAppBar extends StatelessWidget {
 
     return SliverAppBar(
       expandedHeight: (requiredHeight + topHeight + kToolbarHeight),
-      backgroundColor: context.colorTheme.violetDark,
+      backgroundColor: context.colorTheme.primary,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(
           bottom: Radius.circular(AppRadiuses.large),
@@ -26,7 +26,7 @@ class SliverHomeAppBar extends StatelessWidget {
       forceElevated: true,
       elevation: 1,
       scrolledUnderElevation: 10,
-      shadowColor: context.colorTheme.darkSand,
+      shadowColor: context.colorTheme.onSurface,
       surfaceTintColor: Colors.transparent,
 
       // widget

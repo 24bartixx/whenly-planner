@@ -10,29 +10,36 @@ part of 'app_color_theme.dart';
 // **************************************************************************
 
 mixin _$AppColorThemeTailorMixin on ThemeExtension<AppColorTheme> {
-  Color get violet;
-  Color get violetLight;
-  Color get violetDark;
-  Color get darkSand;
-  Color get lightMist;
-  Color get lightGrey;
+  Color get primary;
+  Color get primaryContainer;
+  Color get onPrimary;
+  Color get secondary;
+  Color get secondaryContainer;
+  Color get surface;
+  Color get surfaceContainerLowest;
+  Color get onSurface;
 
   @override
   AppColorTheme copyWith({
-    Color? violet,
-    Color? violetLight,
-    Color? violetDark,
-    Color? darkSand,
-    Color? lightMist,
-    Color? lightGrey,
+    Color? primary,
+    Color? primaryContainer,
+    Color? onPrimary,
+    Color? secondary,
+    Color? secondaryContainer,
+    Color? surface,
+    Color? surfaceContainerLowest,
+    Color? onSurface,
   }) {
     return AppColorTheme(
-      violet: violet ?? this.violet,
-      violetLight: violetLight ?? this.violetLight,
-      violetDark: violetDark ?? this.violetDark,
-      darkSand: darkSand ?? this.darkSand,
-      lightMist: lightMist ?? this.lightMist,
-      lightGrey: lightGrey ?? this.lightGrey,
+      primary: primary ?? this.primary,
+      primaryContainer: primaryContainer ?? this.primaryContainer,
+      onPrimary: onPrimary ?? this.onPrimary,
+      secondary: secondary ?? this.secondary,
+      secondaryContainer: secondaryContainer ?? this.secondaryContainer,
+      surface: surface ?? this.surface,
+      surfaceContainerLowest:
+          surfaceContainerLowest ?? this.surfaceContainerLowest,
+      onSurface: onSurface ?? this.onSurface,
     );
   }
 
@@ -40,12 +47,26 @@ mixin _$AppColorThemeTailorMixin on ThemeExtension<AppColorTheme> {
   AppColorTheme lerp(covariant ThemeExtension<AppColorTheme>? other, double t) {
     if (other is! AppColorTheme) return this as AppColorTheme;
     return AppColorTheme(
-      violet: Color.lerp(violet, other.violet, t)!,
-      violetLight: Color.lerp(violetLight, other.violetLight, t)!,
-      violetDark: Color.lerp(violetDark, other.violetDark, t)!,
-      darkSand: Color.lerp(darkSand, other.darkSand, t)!,
-      lightMist: Color.lerp(lightMist, other.lightMist, t)!,
-      lightGrey: Color.lerp(lightGrey, other.lightGrey, t)!,
+      primary: Color.lerp(primary, other.primary, t)!,
+      primaryContainer: Color.lerp(
+        primaryContainer,
+        other.primaryContainer,
+        t,
+      )!,
+      onPrimary: Color.lerp(onPrimary, other.onPrimary, t)!,
+      secondary: Color.lerp(secondary, other.secondary, t)!,
+      secondaryContainer: Color.lerp(
+        secondaryContainer,
+        other.secondaryContainer,
+        t,
+      )!,
+      surface: Color.lerp(surface, other.surface, t)!,
+      surfaceContainerLowest: Color.lerp(
+        surfaceContainerLowest,
+        other.surfaceContainerLowest,
+        t,
+      )!,
+      onSurface: Color.lerp(onSurface, other.onSurface, t)!,
     );
   }
 
@@ -54,40 +75,49 @@ mixin _$AppColorThemeTailorMixin on ThemeExtension<AppColorTheme> {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is AppColorTheme &&
-            const DeepCollectionEquality().equals(violet, other.violet) &&
+            const DeepCollectionEquality().equals(primary, other.primary) &&
             const DeepCollectionEquality().equals(
-              violetLight,
-              other.violetLight,
+              primaryContainer,
+              other.primaryContainer,
             ) &&
+            const DeepCollectionEquality().equals(onPrimary, other.onPrimary) &&
+            const DeepCollectionEquality().equals(secondary, other.secondary) &&
             const DeepCollectionEquality().equals(
-              violetDark,
-              other.violetDark,
+              secondaryContainer,
+              other.secondaryContainer,
             ) &&
-            const DeepCollectionEquality().equals(darkSand, other.darkSand) &&
-            const DeepCollectionEquality().equals(lightMist, other.lightMist) &&
-            const DeepCollectionEquality().equals(lightGrey, other.lightGrey));
+            const DeepCollectionEquality().equals(surface, other.surface) &&
+            const DeepCollectionEquality().equals(
+              surfaceContainerLowest,
+              other.surfaceContainerLowest,
+            ) &&
+            const DeepCollectionEquality().equals(onSurface, other.onSurface));
   }
 
   @override
   int get hashCode {
     return Object.hash(
       runtimeType.hashCode,
-      const DeepCollectionEquality().hash(violet),
-      const DeepCollectionEquality().hash(violetLight),
-      const DeepCollectionEquality().hash(violetDark),
-      const DeepCollectionEquality().hash(darkSand),
-      const DeepCollectionEquality().hash(lightMist),
-      const DeepCollectionEquality().hash(lightGrey),
+      const DeepCollectionEquality().hash(primary),
+      const DeepCollectionEquality().hash(primaryContainer),
+      const DeepCollectionEquality().hash(onPrimary),
+      const DeepCollectionEquality().hash(secondary),
+      const DeepCollectionEquality().hash(secondaryContainer),
+      const DeepCollectionEquality().hash(surface),
+      const DeepCollectionEquality().hash(surfaceContainerLowest),
+      const DeepCollectionEquality().hash(onSurface),
     );
   }
 }
 
 extension AppColorThemeBuildContextProps on BuildContext {
   AppColorTheme get appColorTheme => Theme.of(this).extension<AppColorTheme>()!;
-  Color get violet => appColorTheme.violet;
-  Color get violetLight => appColorTheme.violetLight;
-  Color get violetDark => appColorTheme.violetDark;
-  Color get darkSand => appColorTheme.darkSand;
-  Color get lightMist => appColorTheme.lightMist;
-  Color get lightGrey => appColorTheme.lightGrey;
+  Color get primary => appColorTheme.primary;
+  Color get primaryContainer => appColorTheme.primaryContainer;
+  Color get onPrimary => appColorTheme.onPrimary;
+  Color get secondary => appColorTheme.secondary;
+  Color get secondaryContainer => appColorTheme.secondaryContainer;
+  Color get surface => appColorTheme.surface;
+  Color get surfaceContainerLowest => appColorTheme.surfaceContainerLowest;
+  Color get onSurface => appColorTheme.onSurface;
 }

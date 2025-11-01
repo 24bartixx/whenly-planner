@@ -13,4 +13,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get home_tasks_for_day => 'Tasks for the day';
+
+  @override
+  String get search_task => 'Search task';
 }

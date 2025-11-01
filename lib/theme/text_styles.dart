@@ -28,7 +28,7 @@ class BoldDarkTextStyle extends DarkTextStyle {
 
 class LightTextStyle extends CustomAbstractTextStyle {
   const LightTextStyle({super.fontSize, super.fontWeight})
-    : super(color: CustomColors.lightMist);
+    : super(color: CustomColors.whiteOwl);
 }
 
 class NormalLightTextStyle extends LightTextStyle {
