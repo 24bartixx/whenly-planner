@@ -15,7 +15,7 @@ class BottomNavScaffold extends StatelessWidget {
         onDestinationSelected: _navigateBranch,
         destinations: const [
           NavigationDestination(label: 'Home', icon: Icon(Icons.home)),
-          NavigationDestination(label: 'To do', icon: Icon(Icons.fact_check)),
+          // NavigationDestination(label: 'To do', icon: Icon(Icons.fact_check)),
         ],
       ),
     );

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:whenly_planner/config/ui_config.dart';
-import 'package:whenly_planner/features/home/presentation/widgets/task_tile.dart';
+import 'package:whenly_planner/features/todo/presentation/widgets/task_tile.dart';
 
 class SliverTasksSection extends StatelessWidget {
   SliverTasksSection({super.key});
