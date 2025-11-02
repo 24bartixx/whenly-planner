@@ -49,3 +49,15 @@ Stream<List<model.Task>> watchDayTasks(Ref ref, {required DateTime day}) {
     (dbTasksList) => dbTasksList.map((dbTask) => dbTask.toModel()).toList(),
   );
 }
+
+@riverpod
+Future<void> updateDoneInTask(
+  Ref ref, {
+  required int id,
+  required bool newDone,
+}) async {
+  final database = ref.read(appDatabaseProvider);
+
+  await (database.update(database.tasks)..where((task) => task.id.equals(id)))
+      .write(const TasksCompanion().copyWith(done: Value(newDone)));
+}

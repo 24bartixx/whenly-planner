@@ -182,3 +182,75 @@ final class WatchDayTasksFamily extends $Family
   @override
   String toString() => r'watchDayTasksProvider';
 }
+
+@ProviderFor(updateDoneInTask)
+const updateDoneInTaskProvider = UpdateDoneInTaskFamily._();
+
+final class UpdateDoneInTaskProvider
+    extends $FunctionalProvider<AsyncValue<void>, void, FutureOr<void>>
+    with $FutureModifier<void>, $FutureProvider<void> {
+  const UpdateDoneInTaskProvider._({
+    required UpdateDoneInTaskFamily super.from,
+    required ({int id, bool newDone}) super.argument,
+  }) : super(
+         retry: null,
+         name: r'updateDoneInTaskProvider',
+         isAutoDispose: true,
+         dependencies: null,
+         $allTransitiveDependencies: null,
+       );
+
+  @override
+  String debugGetCreateSourceHash() => _$updateDoneInTaskHash();
+
+  @override
+  String toString() {
+    return r'updateDoneInTaskProvider'
+        ''
+        '$argument';
+  }
+
+  @$internal
+  @override
+  $FutureProviderElement<void> $createElement($ProviderPointer pointer) =>
+      $FutureProviderElement(pointer);
+
+  @override
+  FutureOr<void> create(Ref ref) {
+    final argument = this.argument as ({int id, bool newDone});
+    return updateDoneInTask(ref, id: argument.id, newDone: argument.newDone);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is UpdateDoneInTaskProvider && other.argument == argument;
+  }
+
+  @override
+  int get hashCode {
+    return argument.hashCode;
+  }
+}
+
+String _$updateDoneInTaskHash() => r'23f373ad29c3341289f9dfc7d306cdcda382ae8b';
+
+final class UpdateDoneInTaskFamily extends $Family
+    with $FunctionalFamilyOverride<FutureOr<void>, ({int id, bool newDone})> {
+  const UpdateDoneInTaskFamily._()
+    : super(
+        retry: null,
+        name: r'updateDoneInTaskProvider',
+        dependencies: null,
+        $allTransitiveDependencies: null,
+        isAutoDispose: true,
+      );
+
+  UpdateDoneInTaskProvider call({required int id, required bool newDone}) =>
+      UpdateDoneInTaskProvider._(
+        argument: (id: id, newDone: newDone),
+        from: this,
+      );
+
+  @override
+  String toString() => r'updateDoneInTaskProvider';
+}
