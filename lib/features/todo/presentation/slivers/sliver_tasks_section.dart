@@ -1,42 +1,57 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:whenly_planner/config/ui_config.dart';
 import 'package:whenly_planner/features/todo/data/models/task.dart';
-import 'package:whenly_planner/features/todo/data/models/task_priority.dart';
+import 'package:whenly_planner/features/todo/data/repos/task_repository.dart';
 import 'package:whenly_planner/features/todo/presentation/widgets/task_tile.dart';
 
-class SliverTasksSection extends StatelessWidget {
+class SliverTasksSection extends ConsumerWidget {
   const SliverTasksSection({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    final List<Task> mockTasks = List.generate(10, (i) {
-      final now = DateTime.now();
-      final priorities = <TaskPriority>[
-        TaskPriority.low,
-        TaskPriority.medium,
-        TaskPriority.high,
-      ];
+  Widget build(BuildContext context, WidgetRef ref) {
+    final tasks = ref.watch(watchDayTasksProvider(day: DateTime(2025, 11, 2)));
 
-      return Task(
-        title: 'Task #${i + 1}',
-        done: i.isEven,
-        priority: priorities[i % priorities.length],
-        taskDdl: now.add(Duration(days: i + 1)),
-        createdAt: now.subtract(Duration(hours: i * 6)),
-      );
-    });
+    return switch (tasks) {
+      AsyncData(value: final tasksValue) => _sliverContent(tasksValue),
+      AsyncLoading() => _loadingSliver(),
+      AsyncError(:final error, :final stackTrace) => _errorSliver(
+        error,
+        stackTrace,
+      ),
+    };
+  }
 
+  Widget _sliverContent(List<Task> tasks) {
     return SliverPadding(
       padding: const EdgeInsets.all(AppPaddings.large),
       sliver: SliverList.builder(
         itemBuilder: (BuildContext context, int index) {
           return Padding(
             padding: const EdgeInsets.symmetric(vertical: AppPaddings.tiny),
-            child: TaskTile(task: mockTasks[index]),
+            child: TaskTile(task: tasks[index]),
           );
         },
-        itemCount: mockTasks.length,
+        itemCount: tasks.length,
       ),
     );
   }
+
+  // TODO: custom loading
+  Widget _loadingSliver() => const SliverFillRemaining(
+    hasScrollBody: false,
+    child: Center(child: CircularProgressIndicator()),
+  );
+
+  // TODO: custom error
+  Widget _errorSliver(Object error, StackTrace stack) => SliverToBoxAdapter(
+    child: Padding(
+      padding: const EdgeInsets.all(AppPaddings.large),
+      child: Text(
+        'Wystąpił błąd: $error',
+        style: const TextStyle(color: Colors.red),
+        textAlign: TextAlign.center,
+      ),
+    ),
+  );
 }

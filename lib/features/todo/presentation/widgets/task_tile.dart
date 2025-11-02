@@ -27,7 +27,7 @@ class TaskTile extends StatelessWidget {
             ),
             Text(task.title),
             Spacer(),
-            Text(task.priority.label(context)),
+            Text(task.priority?.label(context) ?? ""),
           ],
         ),
       ),

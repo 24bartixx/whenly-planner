@@ -8,7 +8,7 @@ abstract class Task with _$Task {
   const factory Task({
     required String title,
     required bool done,
-    required TaskPriority priority,
+    required TaskPriority? priority,
     required DateTime taskDdl,
     required DateTime createdAt,
   }) = _Task;

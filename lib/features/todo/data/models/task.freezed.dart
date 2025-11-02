@@ -14,7 +14,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Task {
 
- String get title; bool get done; TaskPriority get priority; DateTime get taskDdl; DateTime get createdAt;
+ String get title; bool get done; TaskPriority? get priority; DateTime get taskDdl; DateTime get createdAt;
 /// Create a copy of Task
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -45,7 +45,7 @@ abstract mixin class $TaskCopyWith<$Res>  {
   factory $TaskCopyWith(Task value, $Res Function(Task) _then) = _$TaskCopyWithImpl;
 @useResult
 $Res call({
- String title, bool done, TaskPriority priority, DateTime taskDdl, DateTime createdAt
+ String title, bool done, TaskPriority? priority, DateTime taskDdl, DateTime createdAt
 });
 
 
@@ -62,12 +62,12 @@ class _$TaskCopyWithImpl<$Res>
 
 /// Create a copy of Task
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? title = null,Object? done = null,Object? priority = null,Object? taskDdl = null,Object? createdAt = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? title = null,Object? done = null,Object? priority = freezed,Object? taskDdl = null,Object? createdAt = null,}) {
   return _then(_self.copyWith(
 title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
 as String,done: null == done ? _self.done : done // ignore: cast_nullable_to_non_nullable
-as bool,priority: null == priority ? _self.priority : priority // ignore: cast_nullable_to_non_nullable
-as TaskPriority,taskDdl: null == taskDdl ? _self.taskDdl : taskDdl // ignore: cast_nullable_to_non_nullable
+as bool,priority: freezed == priority ? _self.priority : priority // ignore: cast_nullable_to_non_nullable
+as TaskPriority?,taskDdl: null == taskDdl ? _self.taskDdl : taskDdl // ignore: cast_nullable_to_non_nullable
 as DateTime,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
 as DateTime,
   ));
@@ -154,7 +154,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String title,  bool done,  TaskPriority priority,  DateTime taskDdl,  DateTime createdAt)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String title,  bool done,  TaskPriority? priority,  DateTime taskDdl,  DateTime createdAt)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Task() when $default != null:
 return $default(_that.title,_that.done,_that.priority,_that.taskDdl,_that.createdAt);case _:
@@ -175,7 +175,7 @@ return $default(_that.title,_that.done,_that.priority,_that.taskDdl,_that.create
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String title,  bool done,  TaskPriority priority,  DateTime taskDdl,  DateTime createdAt)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String title,  bool done,  TaskPriority? priority,  DateTime taskDdl,  DateTime createdAt)  $default,) {final _that = this;
 switch (_that) {
 case _Task():
 return $default(_that.title,_that.done,_that.priority,_that.taskDdl,_that.createdAt);case _:
@@ -195,7 +195,7 @@ return $default(_that.title,_that.done,_that.priority,_that.taskDdl,_that.create
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String title,  bool done,  TaskPriority priority,  DateTime taskDdl,  DateTime createdAt)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String title,  bool done,  TaskPriority? priority,  DateTime taskDdl,  DateTime createdAt)?  $default,) {final _that = this;
 switch (_that) {
 case _Task() when $default != null:
 return $default(_that.title,_that.done,_that.priority,_that.taskDdl,_that.createdAt);case _:
@@ -215,7 +215,7 @@ class _Task implements Task {
 
 @override final  String title;
 @override final  bool done;
-@override final  TaskPriority priority;
+@override final  TaskPriority? priority;
 @override final  DateTime taskDdl;
 @override final  DateTime createdAt;
 
@@ -249,7 +249,7 @@ abstract mixin class _$TaskCopyWith<$Res> implements $TaskCopyWith<$Res> {
   factory _$TaskCopyWith(_Task value, $Res Function(_Task) _then) = __$TaskCopyWithImpl;
 @override @useResult
 $Res call({
- String title, bool done, TaskPriority priority, DateTime taskDdl, DateTime createdAt
+ String title, bool done, TaskPriority? priority, DateTime taskDdl, DateTime createdAt
 });
 
 
@@ -266,12 +266,12 @@ class __$TaskCopyWithImpl<$Res>
 
 /// Create a copy of Task
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? title = null,Object? done = null,Object? priority = null,Object? taskDdl = null,Object? createdAt = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? title = null,Object? done = null,Object? priority = freezed,Object? taskDdl = null,Object? createdAt = null,}) {
   return _then(_Task(
 title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
 as String,done: null == done ? _self.done : done // ignore: cast_nullable_to_non_nullable
-as bool,priority: null == priority ? _self.priority : priority // ignore: cast_nullable_to_non_nullable
-as TaskPriority,taskDdl: null == taskDdl ? _self.taskDdl : taskDdl // ignore: cast_nullable_to_non_nullable
+as bool,priority: freezed == priority ? _self.priority : priority // ignore: cast_nullable_to_non_nullable
+as TaskPriority?,taskDdl: null == taskDdl ? _self.taskDdl : taskDdl // ignore: cast_nullable_to_non_nullable
 as DateTime,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
 as DateTime,
   ));
