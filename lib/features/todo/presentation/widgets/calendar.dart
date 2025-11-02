@@ -8,45 +8,49 @@ class Calendar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TableCalendar(
-      firstDay: DateTime.utc(2010, 10, 16),
-      lastDay: DateTime.utc(2030, 3, 14),
-      focusedDay: DateTime.now(),
-      headerStyle: HeaderStyle(
-        titleCentered: true,
-        formatButtonVisible: false,
-        titleTextStyle: context.textTheme.headlineMediumLight,
-        leftChevronIcon: Icon(
-          Icons.chevron_left,
-          color: context.colorTheme.onPrimary,
-          size: 22,
+    return SizedBox(
+      height: CalendarConfig.total(),
+      child: TableCalendar(
+        firstDay: DateTime.utc(2010, 10, 16),
+        lastDay: DateTime.utc(2030, 3, 14),
+        focusedDay: DateTime.now(),
+        rowHeight: CalendarConfig.dayCellHeight,
+        daysOfWeekHeight: CalendarConfig.daysOfWeekHeight,
+        headerStyle: HeaderStyle(
+          titleCentered: true,
+          formatButtonVisible: false,
+          headerPadding: EdgeInsets.zero,
+          titleTextStyle: context.textTheme.headlineMediumLight,
+          leftChevronIcon: Icon(
+            Icons.chevron_left,
+            color: context.colorTheme.onPrimary,
+            size: 22,
+          ),
+          rightChevronIcon: Icon(
+            Icons.chevron_right,
+            color: context.colorTheme.onPrimary,
+            size: 22,
+          ),
         ),
-        rightChevronIcon: Icon(
-          Icons.chevron_right,
-          color: context.colorTheme.onPrimary,
-          size: 22,
+        calendarStyle: CalendarStyle(
+          tablePadding: const EdgeInsets.symmetric(
+            vertical: CalendarConfig.verticalPadding,
+          ),
+          defaultTextStyle: context.textTheme.titleSmallLight,
+          weekendTextStyle: context.textTheme.titleSmallLight,
+          outsideTextStyle: context.textTheme.titleSmallLight.copyWith(
+            fontWeight: FontWeight.normal,
+          ),
+          todayDecoration: BoxDecoration(
+            color: context.colorTheme.secondaryContainer,
+            shape: BoxShape.circle,
+          ),
+          todayTextStyle: context.textTheme.titleSmallLight,
         ),
-      ),
-      daysOfWeekStyle: DaysOfWeekStyle(
-        weekdayStyle: context.textTheme.titleSmallLight,
-        weekendStyle: context.textTheme.titleSmallLight,
-      ),
-      calendarStyle: CalendarStyle(
-        tablePadding: EdgeInsets.all(AppPaddings.tiny),
-        defaultTextStyle: context.textTheme.titleSmallLight,
-        weekendTextStyle: context.textTheme.titleSmallLight,
-        outsideTextStyle: context.textTheme.titleSmallLight.copyWith(
-          fontWeight: FontWeight.normal,
+        daysOfWeekStyle: DaysOfWeekStyle(
+          weekdayStyle: context.textTheme.titleSmallLight,
+          weekendStyle: context.textTheme.titleSmallLight,
         ),
-        // selectedDecoration: BoxDecoration(
-        //   color: context.colorTheme.violetLight,
-        //   shape: BoxShape.circle,
-        // ),
-        todayDecoration: BoxDecoration(
-          color: context.colorTheme.secondaryContainer,
-          shape: BoxShape.circle,
-        ),
-        todayTextStyle: context.textTheme.titleSmallLight,
       ),
     );
   }

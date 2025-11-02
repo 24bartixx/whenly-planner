@@ -147,6 +147,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Mark the task as done'**
   String get new_task_done_label;
+
+  /// Replacement text for empty task list
+  ///
+  /// In en, this message translates to:
+  /// **'No tasks for this day'**
+  String get no_tasks_for_day;
 }
 
 class _AppLocalizationsDelegate

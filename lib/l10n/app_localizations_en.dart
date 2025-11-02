@@ -34,4 +34,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get new_task_done_label => 'Mark the task as done';
+
+  @override
+  String get no_tasks_for_day => 'No tasks for this day';
 }

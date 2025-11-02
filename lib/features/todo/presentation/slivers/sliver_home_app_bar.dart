@@ -7,14 +7,12 @@ import 'package:whenly_planner/utils/context_extensions.dart';
 class SliverHomeAppBar extends StatelessWidget {
   const SliverHomeAppBar({super.key});
 
-  final double requiredHeight = 350;
-
   @override
   Widget build(BuildContext context) {
-    final topHeight = MediaQuery.of(context).padding.top;
+    final unsafeHeight = MediaQuery.of(context).viewPadding.top;
 
     return SliverAppBar(
-      expandedHeight: (requiredHeight + topHeight + kToolbarHeight),
+      expandedHeight: (unsafeHeight + CalendarConfig.total() + kToolbarHeight),
       backgroundColor: context.colorTheme.primary,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(

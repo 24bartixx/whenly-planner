@@ -4,6 +4,7 @@ import 'package:whenly_planner/config/ui_config.dart';
 import 'package:whenly_planner/features/todo/data/models/task.dart';
 import 'package:whenly_planner/features/todo/data/repos/task_repository.dart';
 import 'package:whenly_planner/features/todo/presentation/widgets/task_tile.dart';
+import 'package:whenly_planner/utils/context_extensions.dart';
 
 class SliverTasksSection extends ConsumerWidget {
   const SliverTasksSection({super.key});
@@ -13,7 +14,7 @@ class SliverTasksSection extends ConsumerWidget {
     final tasks = ref.watch(watchDayTasksProvider(day: DateTime(2025, 11, 2)));
 
     return switch (tasks) {
-      AsyncData(value: final tasksValue) => _sliverContent(tasksValue),
+      AsyncData(value: final tasksValue) => _sliverContent(tasksValue, context),
       AsyncLoading() => _loadingSliver(),
       AsyncError(:final error, :final stackTrace) => _errorSliver(
         error,
@@ -22,7 +23,14 @@ class SliverTasksSection extends ConsumerWidget {
     };
   }
 
-  Widget _sliverContent(List<Task> tasks) {
+  Widget _sliverContent(List<Task> tasks, BuildContext context) {
+    if (tasks.isEmpty) {
+      return SliverFillRemaining(
+        hasScrollBody: false,
+        child: Center(child: Text(context.l10n.no_tasks_for_day)),
+      );
+    }
+
     return SliverPadding(
       padding: const EdgeInsets.all(AppPaddings.large),
       sliver: SliverList.builder(

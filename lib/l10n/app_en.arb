@@ -38,5 +38,9 @@
   "add_task": "Add task",
   "@add_task": {
     "description": "Text for filled button that adds new task"
+  },
+  "no_tasks_for_day": "No tasks for this day",
+  "@no_tasks_for_day": {
+    "description": "Replacement text for empty task list"
   }
 }

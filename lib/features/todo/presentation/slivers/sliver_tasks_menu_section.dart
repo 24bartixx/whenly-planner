@@ -17,7 +17,7 @@ class SliverTasksMenuSection extends StatelessWidget {
     return SliverPersistentHeader(
       pinned: true,
       delegate: _StickyHeaderDelegate(
-        safeAreaTop: MediaQuery.of(context).padding.top,
+        nonSafeTopHeight: MediaQuery.of(context).viewPadding.top,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
@@ -67,14 +67,14 @@ class SliverTasksMenuSection extends StatelessWidget {
 
 class _StickyHeaderDelegate extends SliverPersistentHeaderDelegate {
   final Widget child;
-  final double safeAreaTop;
+  final double nonSafeTopHeight;
 
-  _StickyHeaderDelegate({required this.child, required this.safeAreaTop});
+  _StickyHeaderDelegate({required this.child, required this.nonSafeTopHeight});
 
   @override
-  double get maxExtent => 200.0;
+  double get maxExtent => TasksConfig.listMenuHeight;
   @override
-  double get minExtent => 200.0;
+  double get minExtent => TasksConfig.listMenuHeight;
 
   @override
   Widget build(
@@ -86,7 +86,7 @@ class _StickyHeaderDelegate extends SliverPersistentHeaderDelegate {
       color: Colors.white,
       child: Padding(
         padding: EdgeInsets.only(
-          top: max(safeAreaTop, 4) + 4,
+          top: max(nonSafeTopHeight, 4) + 4,
           bottom: AppPaddings.large,
           left: AppPaddings.large,
           right: AppPaddings.large,
