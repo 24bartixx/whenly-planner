@@ -25,4 +25,13 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get priority_high => 'High';
+
+  @override
+  String get add_task => 'Add task';
+
+  @override
+  String get task_priority => 'Task priority';
+
+  @override
+  String get new_task_done_label => 'Mark the task as done';
 }

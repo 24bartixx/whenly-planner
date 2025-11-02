@@ -4,6 +4,7 @@ import 'package:whenly_planner/common/widgets/custom_filled_button.dart';
 import 'package:whenly_planner/common/widgets/custom_text_field.dart';
 import 'package:whenly_planner/config/ui_config.dart';
 import 'package:whenly_planner/features/todo/data/models/task_priority.dart';
+import 'package:whenly_planner/features/todo/data/repos/task_repository.dart';
 import 'package:whenly_planner/features/todo/presentation/widgets/add_task/priority_radio_button.dart';
 import 'package:whenly_planner/theme/app_theme.dart';
 import 'package:whenly_planner/utils/context_extensions.dart';
@@ -16,6 +17,9 @@ class AddTaskBottomSheet extends ConsumerStatefulWidget {
 }
 
 class _AddTaskBottomSheetState extends ConsumerState<AddTaskBottomSheet> {
+  final _titleController = TextEditingController();
+
+  // state
   TaskPriority? _priority = TaskPriority.medium;
   bool _isDone = false;
 
@@ -23,7 +27,7 @@ class _AddTaskBottomSheetState extends ConsumerState<AddTaskBottomSheet> {
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context);
     final bottomInset = mediaQuery.viewInsets.bottom;
-    debugPrint("build");
+
     return ConstrainedBox(
       constraints: BoxConstraints(maxHeight: mediaQuery.size.height * 0.9),
       child: SingleChildScrollView(
@@ -38,17 +42,21 @@ class _AddTaskBottomSheetState extends ConsumerState<AddTaskBottomSheet> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Text(
-              "Add task",
+              context.l10n.add_task,
               style: context.textTheme.titleLargeDark,
               textAlign: TextAlign.center,
             ),
             SizedBox(height: 12),
-            CustomTextField(text: "Title", icon: null),
+            CustomTextField(
+              text: "Title",
+              icon: null,
+              controller: _titleController,
+            ),
             SizedBox(height: 20),
             Padding(
               padding: const EdgeInsets.only(left: AppPaddings.medium),
               child: Text(
-                "Task priority",
+                context.l10n.task_priority,
                 style: context.textTheme.titleMediumDark,
               ),
             ),
@@ -82,16 +90,45 @@ class _AddTaskBottomSheetState extends ConsumerState<AddTaskBottomSheet> {
             ),
             SizedBox(height: 10),
             CheckboxListTile(
-              title: Text('Mark the task as done'),
+              title: Text(context.l10n.new_task_done_label),
               value: _isDone,
               activeColor: context.colorTheme.secondary,
               onChanged: (bool? v) => setState(() => _isDone = v ?? false),
             ),
             SizedBox(height: 12),
-            CustomFilledButton(onPressed: () {}, child: Text("Add tile")),
+            CustomFilledButton(
+              onPressed: _addTask,
+              child: Text(context.l10n.add_task),
+            ),
           ],
         ),
       ),
     );
+  }
+
+  Future<void> _addTask() async {
+    final title = _titleController.text.trim();
+    debugPrint("title: $title");
+    if (title.isEmpty) {
+      // some action to inform
+      return;
+    }
+
+    await ref.read(
+      insertTaskProvider(
+        title: title,
+        done: _isDone,
+        priority: _priority,
+        taskDdl: DateTime.now(),
+      ).future,
+    );
+
+    if (mounted) Navigator.of(context).pop(true);
+  }
+
+  @override
+  void dispose() {
+    _titleController.dispose();
+    super.dispose();
   }
 }

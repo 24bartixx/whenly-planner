@@ -8,7 +8,9 @@ import 'package:whenly_planner/theme/app_theme.dart';
 import 'package:whenly_planner/utils/context_extensions.dart';
 
 class SliverTasksMenuSection extends StatelessWidget {
-  const SliverTasksMenuSection({super.key});
+  SliverTasksMenuSection({super.key});
+
+  final _searchController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -36,6 +38,7 @@ class SliverTasksMenuSection extends StatelessWidget {
                           isScrollControlled: true,
                           useSafeArea: true,
                           useRootNavigator: false,
+                          backgroundColor: context.colorTheme.surface,
                           builder: (_) {
                             return AddTaskBottomSheet();
                           },
@@ -50,7 +53,11 @@ class SliverTasksMenuSection extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 12),
-            CustomTextField(text: context.l10n.search_task, icon: Icons.search),
+            CustomTextField(
+              text: context.l10n.search_task,
+              icon: Icons.search,
+              controller: _searchController,
+            ),
           ],
         ),
       ),

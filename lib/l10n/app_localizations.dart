@@ -129,6 +129,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'High'**
   String get priority_high;
+
+  /// Text for filled button that adds new task
+  ///
+  /// In en, this message translates to:
+  /// **'Add task'**
+  String get add_task;
+
+  /// Label for choosing priorty of new task
+  ///
+  /// In en, this message translates to:
+  /// **'Task priority'**
+  String get task_priority;
+
+  /// Label for choosing whether the new task is done checkbox
+  ///
+  /// In en, this message translates to:
+  /// **'Mark the task as done'**
+  String get new_task_done_label;
 }
 
 class _AppLocalizationsDelegate

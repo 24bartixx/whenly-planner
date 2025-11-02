@@ -22,5 +22,21 @@
   "priority_high": "High",
   "@priority_high": {
     "description": "Label for high priority task"
+  },
+  "add_task": "Add task",
+  "@add_task": {
+    "description": "Title for the add task bottom sheet"
+  },
+  "task_priority": "Task priority",
+  "@task_priority": {
+    "description": "Label for choosing priorty of new task"
+  },
+  "new_task_done_label": "Mark the task as done",
+  "@new_task_done_label": {
+    "description": "Label for choosing whether the new task is done checkbox"
+  },
+  "add_task": "Add task",
+  "@add_task": {
+    "description": "Text for filled button that adds new task"
   }
 }
