@@ -22,9 +22,11 @@ class TaskTile extends ConsumerWidget {
         title: Row(
           children: [
             Checkbox(
-              value: false,
+              value: task.done,
               onChanged: (_) {
-                // ref.read(updateDoneInTaskProvider(id: task.id, newDone: !task.done));
+                ref.read(
+                  updateDoneInTaskProvider(id: task.id, newDone: !task.done),
+                );
               },
             ),
             Text(task.title),
