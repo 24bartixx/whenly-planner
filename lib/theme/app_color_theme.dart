@@ -9,7 +9,7 @@ class AppColorTheme extends ThemeExtension<AppColorTheme>
     with _$AppColorThemeTailorMixin {
   const AppColorTheme({
     this.primary = CustomColors.violetDark,
-    this.primaryContainer = CustomColors.violetLight,
+    this.primaryContainer = CustomColors.violet,
     this.onPrimary = CustomColors.whiteOwl,
     this.secondary = CustomColors.coralBloomDark,
     this.secondaryContainer = CustomColors.coralBloom,

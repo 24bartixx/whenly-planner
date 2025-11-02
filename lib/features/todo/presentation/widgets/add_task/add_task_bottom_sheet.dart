@@ -1,0 +1,97 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:whenly_planner/common/widgets/custom_filled_button.dart';
+import 'package:whenly_planner/common/widgets/custom_text_field.dart';
+import 'package:whenly_planner/config/ui_config.dart';
+import 'package:whenly_planner/features/todo/data/models/task_priority.dart';
+import 'package:whenly_planner/features/todo/presentation/widgets/add_task/priority_radio_button.dart';
+import 'package:whenly_planner/theme/app_theme.dart';
+import 'package:whenly_planner/utils/context_extensions.dart';
+
+class AddTaskBottomSheet extends ConsumerStatefulWidget {
+  const AddTaskBottomSheet({super.key});
+
+  @override
+  ConsumerState<AddTaskBottomSheet> createState() => _AddTaskBottomSheetState();
+}
+
+class _AddTaskBottomSheetState extends ConsumerState<AddTaskBottomSheet> {
+  TaskPriority? _priority = TaskPriority.medium;
+  bool _isDone = false;
+
+  @override
+  Widget build(BuildContext context) {
+    final mediaQuery = MediaQuery.of(context);
+    final bottomInset = mediaQuery.viewInsets.bottom;
+    debugPrint("build");
+    return ConstrainedBox(
+      constraints: BoxConstraints(maxHeight: mediaQuery.size.height * 0.9),
+      child: SingleChildScrollView(
+        padding: EdgeInsets.only(
+          left: AppPaddings.large,
+          right: AppPaddings.large,
+          top: AppPaddings.huge,
+          bottom: bottomInset + AppPaddings.huge,
+        ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Text(
+              "Add task",
+              style: context.textTheme.titleLargeDark,
+              textAlign: TextAlign.center,
+            ),
+            SizedBox(height: 12),
+            CustomTextField(text: "Title", icon: null),
+            SizedBox(height: 20),
+            Padding(
+              padding: const EdgeInsets.only(left: AppPaddings.medium),
+              child: Text(
+                "Task priority",
+                style: context.textTheme.titleMediumDark,
+              ),
+            ),
+            SizedBox(height: 4),
+            RadioGroup<TaskPriority>(
+              groupValue: _priority,
+              onChanged: (TaskPriority? newTaskPriority) {
+                setState(() {
+                  _priority = newTaskPriority;
+                });
+              },
+              child: Padding(
+                padding: const EdgeInsets.only(left: AppPaddings.large),
+                child: Column(
+                  children: [
+                    PriorityRadioButton(
+                      label: context.l10n.priority_high,
+                      value: TaskPriority.high,
+                    ),
+                    PriorityRadioButton(
+                      label: context.l10n.priority_medium,
+                      value: TaskPriority.medium,
+                    ),
+                    PriorityRadioButton(
+                      label: context.l10n.priority_low,
+                      value: TaskPriority.low,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(height: 10),
+            CheckboxListTile(
+              title: Text('Mark the task as done'),
+              value: _isDone,
+              activeColor: context.colorTheme.secondary,
+              onChanged: (bool? v) => setState(() => _isDone = v ?? false),
+            ),
+            SizedBox(height: 12),
+            CustomFilledButton(onPressed: () {}, child: Text("Add tile")),
+          ],
+        ),
+      ),
+    );
+  }
+}

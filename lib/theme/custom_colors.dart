@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 abstract class CustomColors {
   static const violetLight = Color.fromARGB(255, 138, 48, 201);
-  static const violet = Color.fromRGBO(94, 13, 152, 1);
+  static const violet = Color.fromRGBO(108, 20, 170, 1);
   static const violetDark = Color.fromARGB(255, 59, 5, 97);
 
   static const coralBloomLight = Color.fromARGB(255, 251, 92, 92);
