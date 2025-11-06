@@ -1,5 +1,5 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:whenly_planner/features/todo/data/drift/database/app_database.dart';
+import 'package:whenly_planner/features/drift/database/app_database.dart';
 
 part "app_database_provider.g.dart";
 

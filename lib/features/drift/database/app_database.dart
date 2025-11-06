@@ -1,12 +1,11 @@
 import 'package:drift/drift.dart';
 import 'package:drift_flutter/drift_flutter.dart';
-import 'package:whenly_planner/features/todo/data/drift/tables/tasks.dart';
+import 'package:whenly_planner/features/drift/tables/deadlines.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:whenly_planner/features/todo/data/models/task_priority.dart';
 
 part 'app_database.g.dart';
 
-@DriftDatabase(tables: [Tasks])
+@DriftDatabase(tables: [Deadlines])
 class AppDatabase extends _$AppDatabase {
   AppDatabase([QueryExecutor? executor]) : super(executor ?? _openConnection());
 
@@ -18,6 +17,7 @@ class AppDatabase extends _$AppDatabase {
       name: 'whenly_database',
       native: const DriftNativeOptions(
         databaseDirectory: getApplicationSupportDirectory,
+        isolateDebugLog: true,
       ),
     );
   }

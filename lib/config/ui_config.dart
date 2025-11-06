@@ -16,7 +16,7 @@ abstract class AppRadiuses {
   static const double huge = 36.0;
 }
 
-abstract class TasksConfig {
+abstract class DeadlinesConfig {
   static const double listMenuHeight = 192;
 }
 

@@ -100,17 +100,17 @@ abstract class AppLocalizations {
   /// **'Choose day'**
   String get home_choose_day;
 
-  /// Title for the day's tasks
+  /// Title for the day's deadlines
   ///
   /// In en, this message translates to:
-  /// **'Tasks for the day'**
-  String get home_tasks_for_day;
+  /// **'Deadlines for the day'**
+  String get home_deadlines_for_day;
 
-  /// Search box placeholder for tasks
+  /// Search box placeholder for deadlines
   ///
   /// In en, this message translates to:
-  /// **'Search task'**
-  String get search_task;
+  /// **'Search deadline'**
+  String get search_deadline;
 
   /// Label for low priority task
   ///
@@ -130,11 +130,11 @@ abstract class AppLocalizations {
   /// **'High'**
   String get priority_high;
 
-  /// Text for filled button that adds new task
+  /// Title for the add deadline bottom sheet
   ///
   /// In en, this message translates to:
-  /// **'Add task'**
-  String get add_task;
+  /// **'Add deadline'**
+  String get add_deadline;
 
   /// Label for choosing priorty of new task
   ///
@@ -142,17 +142,17 @@ abstract class AppLocalizations {
   /// **'Task priority'**
   String get task_priority;
 
-  /// Label for choosing whether the new task is done checkbox
+  /// Label for choosing whether the new deadline is met checkbox
   ///
   /// In en, this message translates to:
-  /// **'Mark the task as done'**
-  String get new_task_done_label;
+  /// **'Mark the deadline as met'**
+  String get new_deadline_met_label;
 
-  /// Replacement text for empty task list
+  /// Replacement text for empty deadline list
   ///
   /// In en, this message translates to:
-  /// **'No tasks for this day'**
-  String get no_tasks_for_day;
+  /// **'No deadlines for this day'**
+  String get no_deadlines_for_day;
 }
 
 class _AppLocalizationsDelegate

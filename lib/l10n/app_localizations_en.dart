@@ -12,10 +12,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get home_choose_day => 'Choose day';
 
   @override
-  String get home_tasks_for_day => 'Tasks for the day';
+  String get home_deadlines_for_day => 'Deadlines for the day';
 
   @override
-  String get search_task => 'Search task';
+  String get search_deadline => 'Search deadline';
 
   @override
   String get priority_low => 'Low';
@@ -27,14 +27,14 @@ class AppLocalizationsEn extends AppLocalizations {
   String get priority_high => 'High';
 
   @override
-  String get add_task => 'Add task';
+  String get add_deadline => 'Add deadline';
 
   @override
   String get task_priority => 'Task priority';
 
   @override
-  String get new_task_done_label => 'Mark the task as done';
+  String get new_deadline_met_label => 'Mark the deadline as met';
 
   @override
-  String get no_tasks_for_day => 'No tasks for this day';
+  String get no_deadlines_for_day => 'No deadlines for this day';
 }

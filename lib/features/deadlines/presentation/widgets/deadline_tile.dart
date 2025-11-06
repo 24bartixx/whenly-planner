@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:whenly_planner/config/ui_config.dart';
-import 'package:whenly_planner/features/todo/data/models/task.dart';
-import 'package:whenly_planner/features/todo/data/models/task_priority.dart';
-import 'package:whenly_planner/features/todo/data/repos/task_repository.dart';
+import 'package:whenly_planner/features/deadlines/data/models/deadline.dart';
+import 'package:whenly_planner/features/deadlines/data/repos/deadlines_repository.dart';
 
-class TaskTile extends ConsumerWidget {
-  const TaskTile({super.key, required this.task});
+class DeadlineTile extends ConsumerWidget {
+  const DeadlineTile({super.key, required this.deadline});
 
-  final Task task;
+  final Deadline deadline;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -22,16 +21,17 @@ class TaskTile extends ConsumerWidget {
         title: Row(
           children: [
             Checkbox(
-              value: task.done,
+              value: deadline.isMet,
               onChanged: (_) {
                 ref.read(
-                  updateDoneInTaskProvider(id: task.id, newDone: !task.done),
+                  updateIsMetInDeadlineProvider(
+                    id: deadline.id,
+                    newIsMet: !deadline.isMet,
+                  ),
                 );
               },
             ),
-            Text(task.title),
-            Spacer(),
-            Text(task.priority?.label(context) ?? ""),
+            Text(deadline.title),
           ],
         ),
       ),

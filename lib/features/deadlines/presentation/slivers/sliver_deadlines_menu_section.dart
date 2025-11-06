@@ -3,12 +3,12 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:whenly_planner/common/widgets/custom_text_field.dart';
 import 'package:whenly_planner/config/ui_config.dart';
-import 'package:whenly_planner/features/todo/presentation/widgets/add_task/add_task_bottom_sheet.dart';
+import 'package:whenly_planner/features/deadlines/presentation/widgets/add_deadline/add_deadline_bottom_sheet.dart';
 import 'package:whenly_planner/theme/app_theme.dart';
 import 'package:whenly_planner/utils/context_extensions.dart';
 
-class SliverTasksMenuSection extends StatelessWidget {
-  SliverTasksMenuSection({super.key});
+class SliverDeadlinesMenuSection extends StatelessWidget {
+  SliverDeadlinesMenuSection({super.key});
 
   final _searchController = TextEditingController();
 
@@ -25,7 +25,7 @@ class SliverTasksMenuSection extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  context.l10n.home_tasks_for_day,
+                  context.l10n.home_deadlines_for_day,
                   style: context.textTheme.headlineMediumDark,
                 ),
                 Row(
@@ -40,7 +40,7 @@ class SliverTasksMenuSection extends StatelessWidget {
                           useRootNavigator: false,
                           backgroundColor: context.colorTheme.surface,
                           builder: (_) {
-                            return AddTaskBottomSheet();
+                            return AddDeadlineBottomSheet();
                           },
                         );
                       },
@@ -54,7 +54,7 @@ class SliverTasksMenuSection extends StatelessWidget {
             ),
             const SizedBox(height: 12),
             CustomTextField(
-              text: context.l10n.search_task,
+              text: context.l10n.search_deadline,
               icon: Icons.search,
               controller: _searchController,
             ),
@@ -72,9 +72,9 @@ class _StickyHeaderDelegate extends SliverPersistentHeaderDelegate {
   _StickyHeaderDelegate({required this.child, required this.nonSafeTopHeight});
 
   @override
-  double get maxExtent => TasksConfig.listMenuHeight;
+  double get maxExtent => DeadlinesConfig.listMenuHeight;
   @override
-  double get minExtent => TasksConfig.listMenuHeight;
+  double get minExtent => DeadlinesConfig.listMenuHeight;
 
   @override
   Widget build(

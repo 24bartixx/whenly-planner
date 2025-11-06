@@ -1,20 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:whenly_planner/config/ui_config.dart';
-import 'package:whenly_planner/features/todo/data/models/task.dart';
-import 'package:whenly_planner/features/todo/data/repos/task_repository.dart';
-import 'package:whenly_planner/features/todo/presentation/widgets/task_tile.dart';
+import 'package:whenly_planner/features/deadlines/data/models/deadline.dart';
+import 'package:whenly_planner/features/deadlines/data/repos/deadlines_repository.dart';
+import 'package:whenly_planner/features/deadlines/presentation/widgets/deadline_tile.dart';
 import 'package:whenly_planner/utils/context_extensions.dart';
 
-class SliverTasksSection extends ConsumerWidget {
-  const SliverTasksSection({super.key});
+class SliverDeadlinesSection extends ConsumerWidget {
+  const SliverDeadlinesSection({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final tasks = ref.watch(watchDayTasksProvider(day: DateTime(2025, 11, 2)));
+    final deadlines = ref.watch(
+      watchDayDeadlinesProvider(day: DateTime(2025, 11, 6)),
+    );
 
-    return switch (tasks) {
-      AsyncData(value: final tasksValue) => _sliverContent(tasksValue, context),
+    return switch (deadlines) {
+      AsyncData(value: final deadlinesValue) => _sliverContent(
+        deadlinesValue,
+        context,
+      ),
       AsyncLoading() => _loadingSliver(),
       AsyncError(:final error, :final stackTrace) => _errorSliver(
         error,
@@ -23,11 +28,11 @@ class SliverTasksSection extends ConsumerWidget {
     };
   }
 
-  Widget _sliverContent(List<Task> tasks, BuildContext context) {
-    if (tasks.isEmpty) {
+  Widget _sliverContent(List<Deadline> deadlines, BuildContext context) {
+    if (deadlines.isEmpty) {
       return SliverFillRemaining(
         hasScrollBody: false,
-        child: Center(child: Text(context.l10n.no_tasks_for_day)),
+        child: Center(child: Text(context.l10n.no_deadlines_for_day)),
       );
     }
 
@@ -37,10 +42,10 @@ class SliverTasksSection extends ConsumerWidget {
         itemBuilder: (BuildContext context, int index) {
           return Padding(
             padding: const EdgeInsets.symmetric(vertical: AppPaddings.tiny),
-            child: TaskTile(task: tasks[index]),
+            child: DeadlineTile(deadline: deadlines[index]),
           );
         },
-        itemCount: tasks.length,
+        itemCount: deadlines.length,
       ),
     );
   }
