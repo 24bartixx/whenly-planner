@@ -17,7 +17,7 @@ abstract class AppRadiuses {
 }
 
 abstract class DeadlinesConfig {
-  static const double listMenuHeight = 192;
+  static const double listMenuHeight = 156;
 }
 
 abstract class CalendarConfig {

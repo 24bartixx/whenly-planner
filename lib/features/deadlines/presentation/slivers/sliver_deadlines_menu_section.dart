@@ -71,10 +71,12 @@ class _StickyHeaderDelegate extends SliverPersistentHeaderDelegate {
 
   _StickyHeaderDelegate({required this.child, required this.nonSafeTopHeight});
 
+  double get _totalHeight => DeadlinesConfig.listMenuHeight + nonSafeTopHeight;
+
   @override
-  double get maxExtent => DeadlinesConfig.listMenuHeight;
+  double get maxExtent => _totalHeight;
   @override
-  double get minExtent => DeadlinesConfig.listMenuHeight;
+  double get minExtent => _totalHeight;
 
   @override
   Widget build(
