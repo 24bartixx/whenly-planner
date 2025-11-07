@@ -9,10 +9,11 @@ abstract class CustomColors {
   static const coralBloom = Color.fromARGB(255, 229, 78, 78);
   static const coralBloomDark = Color.fromARGB(255, 204, 51, 51);
 
+  static const capocollo = Color.fromARGB(255, 221, 79, 79);
+
   static const whiteOwl = Color(0xFFF5F2F7);
   static const white = Color(0xFFFFFFFF);
 
   static const darkSand = Color(0xFF1C1F25);
-
-  static const lightBg = Color(0xFFF2F3F7);
+  static const black = Color(0xFF000000);
 }

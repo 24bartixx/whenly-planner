@@ -37,4 +37,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get no_deadlines_for_day => 'No deadlines for this day';
+
+  @override
+  String get popup_edit => 'Edit';
+
+  @override
+  String get popup_delete => 'Delete';
 }

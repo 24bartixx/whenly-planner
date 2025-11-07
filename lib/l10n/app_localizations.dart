@@ -153,6 +153,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'No deadlines for this day'**
   String get no_deadlines_for_day;
+
+  /// Title for tile menu popup edit option
+  ///
+  /// In en, this message translates to:
+  /// **'Edit'**
+  String get popup_edit;
+
+  /// Title for tile menu popup delete option
+  ///
+  /// In en, this message translates to:
+  /// **'Delete'**
+  String get popup_delete;
 }
 
 class _AppLocalizationsDelegate

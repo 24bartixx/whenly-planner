@@ -16,6 +16,18 @@ abstract class AppRadiuses {
   static const double huge = 36.0;
 }
 
+abstract class AppWidths {
+  static const double small = 8;
+  static const double medium = 12;
+  static const double big = 18;
+}
+
+abstract class IconSizes {
+  static double small = 16;
+  static double medium = 22;
+  static double big = 26;
+}
+
 abstract class DeadlinesConfig {
   static const double listMenuHeight = 156;
 }

@@ -38,5 +38,13 @@
   "no_deadlines_for_day": "No deadlines for this day",
   "@no_deadlines_for_day": {
     "description": "Replacement text for empty deadline list"
+  },
+  "popup_edit": "Edit",
+  "@popup_edit": {
+    "description": "Title for tile menu popup edit option"
+  },
+  "popup_delete": "Delete",
+  "@popup_delete": {
+    "description": "Title for tile menu popup delete option"
   }
 }

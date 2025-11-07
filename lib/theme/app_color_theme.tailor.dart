@@ -15,6 +15,7 @@ mixin _$AppColorThemeTailorMixin on ThemeExtension<AppColorTheme> {
   Color get onPrimary;
   Color get secondary;
   Color get secondaryContainer;
+  Color get error;
   Color get surface;
   Color get surfaceContainerLowest;
   Color get onSurface;
@@ -26,6 +27,7 @@ mixin _$AppColorThemeTailorMixin on ThemeExtension<AppColorTheme> {
     Color? onPrimary,
     Color? secondary,
     Color? secondaryContainer,
+    Color? error,
     Color? surface,
     Color? surfaceContainerLowest,
     Color? onSurface,
@@ -36,6 +38,7 @@ mixin _$AppColorThemeTailorMixin on ThemeExtension<AppColorTheme> {
       onPrimary: onPrimary ?? this.onPrimary,
       secondary: secondary ?? this.secondary,
       secondaryContainer: secondaryContainer ?? this.secondaryContainer,
+      error: error ?? this.error,
       surface: surface ?? this.surface,
       surfaceContainerLowest:
           surfaceContainerLowest ?? this.surfaceContainerLowest,
@@ -60,6 +63,7 @@ mixin _$AppColorThemeTailorMixin on ThemeExtension<AppColorTheme> {
         other.secondaryContainer,
         t,
       )!,
+      error: Color.lerp(error, other.error, t)!,
       surface: Color.lerp(surface, other.surface, t)!,
       surfaceContainerLowest: Color.lerp(
         surfaceContainerLowest,
@@ -86,6 +90,7 @@ mixin _$AppColorThemeTailorMixin on ThemeExtension<AppColorTheme> {
               secondaryContainer,
               other.secondaryContainer,
             ) &&
+            const DeepCollectionEquality().equals(error, other.error) &&
             const DeepCollectionEquality().equals(surface, other.surface) &&
             const DeepCollectionEquality().equals(
               surfaceContainerLowest,
@@ -103,6 +108,7 @@ mixin _$AppColorThemeTailorMixin on ThemeExtension<AppColorTheme> {
       const DeepCollectionEquality().hash(onPrimary),
       const DeepCollectionEquality().hash(secondary),
       const DeepCollectionEquality().hash(secondaryContainer),
+      const DeepCollectionEquality().hash(error),
       const DeepCollectionEquality().hash(surface),
       const DeepCollectionEquality().hash(surfaceContainerLowest),
       const DeepCollectionEquality().hash(onSurface),
@@ -117,6 +123,7 @@ extension AppColorThemeBuildContextProps on BuildContext {
   Color get onPrimary => appColorTheme.onPrimary;
   Color get secondary => appColorTheme.secondary;
   Color get secondaryContainer => appColorTheme.secondaryContainer;
+  Color get error => appColorTheme.error;
   Color get surface => appColorTheme.surface;
   Color get surfaceContainerLowest => appColorTheme.surfaceContainerLowest;
   Color get onSurface => appColorTheme.onSurface;

@@ -13,6 +13,7 @@ class AppColorTheme extends ThemeExtension<AppColorTheme>
     this.onPrimary = CustomColors.whiteOwl,
     this.secondary = CustomColors.coralBloomDark,
     this.secondaryContainer = CustomColors.coralBloom,
+    this.error = CustomColors.capocollo,
     this.surface = CustomColors.whiteOwl,
     this.surfaceContainerLowest = CustomColors.white,
     this.onSurface = CustomColors.darkSand,
@@ -29,6 +30,9 @@ class AppColorTheme extends ThemeExtension<AppColorTheme>
   final Color secondary;
   @override
   final Color secondaryContainer;
+
+  @override
+  final Color error;
 
   @override
   final Color surface;
