@@ -59,3 +59,12 @@ Future<void> updateIsMetInDeadline(
         ..where((deadline) => deadline.id.equals(id)))
       .write(const DeadlinesCompanion().copyWith(isMet: Value(newIsMet)));
 }
+
+@riverpod
+Future<void> deleteDeadline(Ref ref, {required int id}) async {
+  final database = ref.read(appDatabaseProvider);
+
+  await (database.delete(
+    database.deadlines,
+  )..where((deadline) => deadline.id.equals(id))).go();
+}

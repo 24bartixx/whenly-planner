@@ -25,7 +25,7 @@ class _DeadlineTileState extends ConsumerState<DeadlineTile> {
     return GestureDetector(
       onTapDown: _getTapPosition,
       onLongPress: () {
-        _showPopupMenu(context);
+        _showPopupMenu(context, deadline.id);
       },
       child: Card(
         color: Colors.white,
@@ -61,7 +61,7 @@ class _DeadlineTileState extends ConsumerState<DeadlineTile> {
     });
   }
 
-  void _showPopupMenu(BuildContext context) async {
+  void _showPopupMenu(BuildContext context, int id) async {
     final RenderObject? overlay = Overlay.of(
       context,
       rootOverlay: true,
@@ -123,6 +123,7 @@ class _DeadlineTileState extends ConsumerState<DeadlineTile> {
         break;
       case 'delete':
         // TODO: delete handling
+        ref.read(deleteDeadlineProvider(id: id));
         debugPrint('Deleted');
         break;
     }
