@@ -44,10 +44,10 @@ class SliverDeadlinesMenuSection extends StatelessWidget {
                           },
                         );
                       },
-                      icon: Icon(Icons.add, size: 26),
+                      icon: Icon(Icons.add, size: IconSizes.big),
                     ),
 
-                    Icon(Icons.format_list_numbered, size: 26),
+                    Icon(Icons.format_list_numbered, size: IconSizes.big),
                   ],
                 ),
               ],

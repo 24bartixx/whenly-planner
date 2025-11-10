@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:whenly_planner/config/ui_config.dart';
 import 'package:whenly_planner/features/deadlines/data/models/deadline.dart';
 import 'package:whenly_planner/features/deadlines/data/repos/deadlines_repository.dart';
-import 'package:whenly_planner/features/deadlines/presentation/widgets/deadline_tile.dart';
+import 'package:whenly_planner/features/deadlines/presentation/widgets/tiles/deadline_tile.dart';
 import 'package:whenly_planner/utils/context_extensions.dart';
 
 class SliverDeadlinesSection extends ConsumerWidget {
@@ -12,7 +12,6 @@ class SliverDeadlinesSection extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final today = DateUtils.dateOnly(DateTime.now());
-    debugPrint("today: $today");
     final deadlines = ref.watch(watchDayDeadlinesProvider(day: today));
 
     return switch (deadlines) {

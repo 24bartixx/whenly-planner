@@ -20,6 +20,8 @@ abstract class AppSizes {
   static const double small = 8;
   static const double medium = 12;
   static const double big = 18;
+  static const double large = 24;
+  static const double huge = 30;
 }
 
 abstract class IconSizes {

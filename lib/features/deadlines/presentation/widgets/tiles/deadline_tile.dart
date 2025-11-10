@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:whenly_planner/config/ui_config.dart';
 import 'package:whenly_planner/features/deadlines/data/models/deadline.dart';
+import 'package:whenly_planner/features/deadlines/data/models/work_session.dart';
 import 'package:whenly_planner/features/deadlines/data/repos/deadlines_repository.dart';
+import 'package:whenly_planner/features/deadlines/presentation/widgets/tiles/work_sessions_tile.dart';
 import 'package:whenly_planner/theme/app_theme.dart';
 import 'package:whenly_planner/utils/context_extensions.dart';
 
@@ -20,7 +22,16 @@ class _DeadlineTileState extends ConsumerState<DeadlineTile> {
 
   Offset _tapPosition = Offset.zero;
 
-  final realizationDatesMocks = [1, 2, 3];
+  final realizationDatesMocks = List<WorkSession>.generate(
+    3,
+    (i) => WorkSession(
+      id: i,
+      startDate: DateTime.now().subtract(Duration(days: i * 7)),
+      endDate: DateTime.now()
+          .subtract(Duration(days: i * 7))
+          .add(const Duration(hours: 1)),
+    ),
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -69,18 +80,24 @@ class _DeadlineTileState extends ConsumerState<DeadlineTile> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    Text(
-                      context.l10n.work_sessions,
-                      style: context.textTheme.titleMediumDark,
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          context.l10n.work_sessions,
+                          style: context.textTheme.titleMediumDark,
+                        ),
+                        Icon(Icons.edit, size: IconSizes.medium),
+                      ],
                     ),
-                    const SizedBox(height: AppSizes.big),
+                    const SizedBox(height: AppSizes.huge),
                     ListView.separated(
                       shrinkWrap: true,
                       physics: NeverScrollableScrollPhysics(),
                       padding: EdgeInsets.zero,
-                      itemBuilder: (_, index) {
-                        return Text("Date ${realizationDatesMocks[index]}");
-                      },
+                      itemBuilder: (_, index) => WorkSessionsTile(
+                        workSession: realizationDatesMocks[index],
+                      ),
                       separatorBuilder: (_, _) => const Divider(),
                       itemCount: realizationDatesMocks.length,
                     ),
