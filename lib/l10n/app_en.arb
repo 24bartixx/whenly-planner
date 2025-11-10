@@ -46,5 +46,9 @@
   "popup_delete": "Delete",
   "@popup_delete": {
     "description": "Title for tile menu popup delete option"
+  },
+  "work_sessions": "Work sessions",
+  "@work_sessions": {
+    "description": "Title for list of work sessions of a deadline"
   }
 }

@@ -43,4 +43,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get popup_delete => 'Delete';
+
+  @override
+  String get work_sessions => 'Work sessions';
 }

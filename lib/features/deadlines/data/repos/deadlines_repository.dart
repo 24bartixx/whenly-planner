@@ -20,18 +20,22 @@ Future<void> insertDeadline(
   await database
       .into(database.deadlines)
       .insert(
-        DeadlinesCompanion.insert(title: title, isMet: Value(isMet), ddl: ddl),
+        DeadlinesCompanion.insert(
+          title: title,
+          isMet: Value(isMet),
+          ddl: ddl.toUtc(),
+        ),
       );
 }
 
-@riverpod
+@Riverpod(keepAlive: true)
 Stream<List<model.Deadline>> watchDayDeadlines(
   Ref ref, {
   required DateTime day,
 }) {
   final database = ref.read(appDatabaseProvider);
 
-  final start = DateTime(day.year, day.month, day.day);
+  final start = DateTime(day.year, day.month, day.day).toUtc();
   final end = start.add(const Duration(days: 1));
 
   final query = database.select(database.deadlines)

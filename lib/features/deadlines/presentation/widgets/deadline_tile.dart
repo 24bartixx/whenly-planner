@@ -20,6 +20,8 @@ class _DeadlineTileState extends ConsumerState<DeadlineTile> {
 
   Offset _tapPosition = Offset.zero;
 
+  final realizationDatesMocks = [1, 2, 3];
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -28,26 +30,63 @@ class _DeadlineTileState extends ConsumerState<DeadlineTile> {
         _showPopupMenu(context, deadline.id);
       },
       child: Card(
-        color: Colors.white,
+        color: context.colorTheme.surfaceContainerLowest,
         elevation: 4,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(AppRadiuses.large),
         ),
-        child: ListTile(
-          title: Row(
-            children: [
-              Checkbox(
-                value: deadline.isMet,
-                onChanged: (_) {
-                  ref.read(
-                    updateIsMetInDeadlineProvider(
-                      id: deadline.id,
-                      newIsMet: !deadline.isMet,
+        child: Theme(
+          data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
+          child: ExpansionTile(
+            title: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Checkbox(
+                  value: deadline.isMet,
+                  onChanged: (_) {
+                    ref.read(
+                      updateIsMetInDeadlineProvider(
+                        id: deadline.id,
+                        newIsMet: !deadline.isMet,
+                      ),
+                    );
+                  },
+                ),
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: AppPaddings.medium),
+                    child: Text(
+                      deadline.title,
+                      style: context.textTheme.bodyLargeDark,
                     ),
-                  );
-                },
+                  ),
+                ),
+              ],
+            ),
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(AppPaddings.large),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Text(
+                      context.l10n.work_sessions,
+                      style: context.textTheme.titleMediumDark,
+                    ),
+                    const SizedBox(height: AppSizes.big),
+                    ListView.separated(
+                      shrinkWrap: true,
+                      physics: NeverScrollableScrollPhysics(),
+                      padding: EdgeInsets.zero,
+                      itemBuilder: (_, index) {
+                        return Text("Date ${realizationDatesMocks[index]}");
+                      },
+                      separatorBuilder: (_, _) => const Divider(),
+                      itemCount: realizationDatesMocks.length,
+                    ),
+                  ],
+                ),
               ),
-              Text(deadline.title),
             ],
           ),
         ),
@@ -86,7 +125,7 @@ class _DeadlineTileState extends ConsumerState<DeadlineTile> {
           child: Row(
             children: [
               Icon(Icons.edit, size: IconSizes.medium),
-              const SizedBox(width: AppWidths.medium),
+              const SizedBox(width: AppSizes.medium),
               Text(
                 context.l10n.popup_edit,
                 style: context.textTheme.titleSmallDark,
@@ -103,7 +142,7 @@ class _DeadlineTileState extends ConsumerState<DeadlineTile> {
                 color: context.colorTheme.error,
                 size: IconSizes.medium,
               ),
-              SizedBox(width: AppWidths.medium),
+              SizedBox(width: AppSizes.medium),
               Text(
                 context.l10n.popup_delete,
                 style: context.textTheme.titleSmallDark.copyWith(

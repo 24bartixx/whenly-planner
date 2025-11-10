@@ -165,6 +165,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Delete'**
   String get popup_delete;
+
+  /// Title for list of work sessions of a deadline
+  ///
+  /// In en, this message translates to:
+  /// **'Work sessions'**
+  String get work_sessions;
 }
 
 class _AppLocalizationsDelegate

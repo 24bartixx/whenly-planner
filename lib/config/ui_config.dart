@@ -16,7 +16,7 @@ abstract class AppRadiuses {
   static const double huge = 36.0;
 }
 
-abstract class AppWidths {
+abstract class AppSizes {
   static const double small = 8;
   static const double medium = 12;
   static const double big = 18;

@@ -11,9 +11,9 @@ class SliverDeadlinesSection extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final deadlines = ref.watch(
-      watchDayDeadlinesProvider(day: DateTime(2025, 11, 6)),
-    );
+    final today = DateUtils.dateOnly(DateTime.now());
+    debugPrint("today: $today");
+    final deadlines = ref.watch(watchDayDeadlinesProvider(day: today));
 
     return switch (deadlines) {
       AsyncData(value: final deadlinesValue) => _sliverContent(
