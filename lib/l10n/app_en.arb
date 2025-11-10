@@ -1,4 +1,12 @@
 {
+  "nav_deadline": "Deadlines",
+  "@nav_deadline": {
+    "description": "Title for deadline bottom nav tab"
+  },
+  "nav_work_sessions": "Work sessions",
+  "@nav_work_sessions": {
+    "description": "Title for work sessions bottom nav tab"
+  },
   "home_choose_day": "Choose day",
   "@home_choose_day": {
     "description": "Short title shown at the top of the day-picker"

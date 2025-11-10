@@ -94,6 +94,18 @@ abstract class AppLocalizations {
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[Locale('en')];
 
+  /// Title for deadline bottom nav tab
+  ///
+  /// In en, this message translates to:
+  /// **'Deadlines'**
+  String get nav_deadline;
+
+  /// Title for work sessions bottom nav tab
+  ///
+  /// In en, this message translates to:
+  /// **'Work sessions'**
+  String get nav_work_sessions;
+
   /// Short title shown at the top of the day-picker
   ///
   /// In en, this message translates to:

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:whenly_planner/config/ui_config.dart';
 import 'package:whenly_planner/features/deadlines/data/models/deadline.dart';
-import 'package:whenly_planner/features/deadlines/data/models/work_session.dart';
+import 'package:whenly_planner/features/work_sessions/data/models/work_session.dart';
 import 'package:whenly_planner/features/deadlines/data/repos/deadlines_repository.dart';
 import 'package:whenly_planner/features/deadlines/presentation/widgets/tiles/work_sessions_tile.dart';
 import 'package:whenly_planner/theme/app_theme.dart';

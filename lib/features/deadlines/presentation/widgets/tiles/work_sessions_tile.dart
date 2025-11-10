@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:whenly_planner/features/deadlines/data/models/work_session.dart';
+import 'package:whenly_planner/features/work_sessions/data/models/work_session.dart';
 import 'package:whenly_planner/utils/date_extensions.dart';
 
 class WorkSessionsTile extends StatelessWidget {

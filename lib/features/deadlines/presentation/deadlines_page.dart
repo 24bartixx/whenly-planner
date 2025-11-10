@@ -4,7 +4,7 @@ import 'package:whenly_planner/features/deadlines/presentation/deadlines_view.da
 class DeadlinesPage extends StatelessWidget {
   const DeadlinesPage({super.key});
 
-  static const String path = "/";
+  static const String path = "/deadlines";
 
   @override
   Widget build(BuildContext context) {
